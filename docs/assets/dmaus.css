@@ -1,0 +1,64 @@
+:root {
+    --ratio: 1.5;
+    --size-small-1: calc(var(--size-small-2) / var(--ratio));
+    --size-small-2: calc(var(--size-small-1) / var(--ratio));
+    --size-small-1: calc(var(--size-default) / var(--ratio));
+    --size-default: 1rem;
+    --size-large-1: calc(var(--size-default) * var(--ratio));
+    --size-large-2: calc(var(--size-large-1) * var(--ratio));
+    --size-large-3: calc(var(--size-large-2) * var(--ratio));
+}
+
+.reveal h1 {
+    font-size: var(--size-large-3);
+}
+
+.reveal h2 {
+    font-size: var(--size-large-2);
+}
+
+.reveal h3 {
+    font-size: var(--size-large-1);
+}
+
+body { background-image: url(dmaus.svg); background-repeat: no-repeat; }
+body > .reveal { background-image: url(ccby.svg); background-repeat: no-repeat; background-position: bottom right; }
+
+address {
+    font-size: calc(1em / var(--ratio));
+    margin-left: 1em;
+}
+
+.reveal ul ol, .reveal ol dl, .reveal ul ul {
+    font-size: calc(1em / ( var(--ratio) ));
+}
+
+address span {
+    display: block;
+}
+
+.reveal .dmaus-picture {
+    width: 5em;
+    float: right;
+    border: none;
+    padding: 0;
+}
+
+.reveal figure img {
+    width: 80%;
+    border: thin solid;
+    padding: 1em;
+}
+
+.reveal figure figcaption {
+    font-size: calc(1em / ( var(--ratio) * var(--ratio) ));
+}
+
+.reveal table {
+    font-size: calc(1em / ( var(--ratio) * var(--ratio) ));
+    width: 100%;
+}
+
+.dim {
+    opacity: 0.33;
+}
