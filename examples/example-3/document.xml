@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" type="transcript">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title> Herzog August der Jüngere von Braunschweig-Wolfenbüttel (1579-1666):
+               Ephemerides. Sive Diarium (1594-1635)</title>
+            <title type="short"><hi rend="italic">Ephemerides. Sive Diarium.</hi></title>
+            <author>August, Braunschweig-Lüneburg, Herzog, 1579-1666</author>
+            <principal ref="https://doi.org/10.1515/editio-2016-0009">Inga Hanna Ralle</principal>
+            <funder ref="http://d-nb.info/gnd/5055588-1">Niedersächsisches Ministerium für
+               Wissenschaft und Kultur</funder>
+            <respStmt>
+               <name>Jacqueline Krone</name>
+               <resp>Metadaten, Recherche und Korrektur</resp>
+            </respStmt>
+            <respStmt>
+               <name ref="http://orcid.org/0000-0001-9292-5673">David Maus</name>
+               <resp>Technische Konzeption und Begleitung</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher><name ref="http://d-nb.info/gnd/8989-8">Herzog August Bibliothek
+                  Wolfenbüttel</name></publisher>
+            <pubPlace>Wolfenbüttel</pubPlace>
+            <date when="2017">2017</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA
+                  4.0</licence>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <bibl> Herzog August der Jüngere von Braunschweig-Wolfenbüttel (1579-1666): Ephemerides.
+               Sive Diarium (1594-1635). Herzog August Bibliothek, Signatur: Cod. Guelf. 42.19 Aug.
+               2° </bibl>
+            <listPerson>
+               <person xml:id="august">
+                  <idno>http://d-nb.info/gnd/118505076</idno>
+                  <persName>August, Braunschweig-Lüneburg, Herzog, 1579-1666</persName>
+               </person>
+            </listPerson>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <p>...</p>
+      </body>
+   </text>
+</TEI>
