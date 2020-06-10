@@ -8,6 +8,8 @@
                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="../../schxslt/2.0/compile-for-svrl.xsl"/>
+  
+  <xsl:namespace-alias stylesheet-prefix="runtime" result-prefix="xsl"/>
 
   <xsl:template name="schxslt-api:active-pattern">
     <xsl:param name="pattern" as="element(sch:pattern)" required="yes"/>

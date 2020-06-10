@@ -1,5 +1,5 @@
 <xsl:transform version="2.0"
-               xmlns="http://www.w3.org/1999/XSL/TransformAlias"
+               xmlns:runtime="http://www.w3.org/1999/XSL/TransformAlias"
                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                xmlns:error="https://doi.org/10.5281/zenodo.1495494#error"
                xmlns:schxslt="https://doi.org/10.5281/zenodo.1495494"
@@ -9,6 +9,8 @@
                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="compile/compile-2.0.xsl"/>
+  
+  <xsl:namespace-alias stylesheet-prefix="runtime" result-prefix="xsl"/>
 
   <xsl:template name="schxslt-api:report">
     <xsl:param name="schema" as="element(sch:schema)" required="yes"/>
@@ -35,7 +37,8 @@
         </svrl:ns-prefix-in-attribute-values>
       </xsl:for-each>
 
-      <sequence select="$schxslt:report"/>
+      <!-- This variable is dynamically available at runtime -->
+      <runtime:sequence select="$schxslt:report"/>
 
     </svrl:schematron-output>
   </xsl:template>
@@ -45,7 +48,7 @@
     <svrl:active-pattern>
       <xsl:sequence select="($pattern/@id, $pattern/@role)"/>
       <xsl:if test="exists(base-uri(.))">
-        <attribute name="documents" select="base-uri(.)"/>
+        <runtime:attribute name="documents" select="base-uri(.)"/>
       </xsl:if>
     </svrl:active-pattern>
   </xsl:template>
@@ -54,9 +57,9 @@
     <xsl:param name="rule" as="element(sch:rule)" required="yes"/>
     <svrl:fired-rule>
       <xsl:sequence select="($rule/@id, $rule/@role, $rule/@flag)"/>
-      <attribute name="context">
+      <runtime:attribute name="context">
         <xsl:value-of select="$rule/@context"/>
-      </attribute>
+      </runtime:attribute>
     </svrl:fired-rule>
   </xsl:template>
 
@@ -65,13 +68,13 @@
     <xsl:variable name="message">
       WARNING: Rule <xsl:value-of select="normalize-space(@id)"/> for context "<xsl:value-of select="@context"/>" shadowed by preceeding rule
     </xsl:variable>
-    <comment> <xsl:sequence select="normalize-space($message)"/> </comment>
-    <message> <xsl:sequence select="normalize-space($message)"/> </message>
+    <runtime:comment> <xsl:sequence select="normalize-space($message)"/> </runtime:comment>
+    <runtime:message> <xsl:sequence select="normalize-space($message)"/> </runtime:message>
     <svrl:suppressed-rule>
       <xsl:sequence select="($rule/@id, $rule/@role, $rule/@flag)"/>
-      <attribute name="context">
+      <runtime:attribute name="context">
         <xsl:value-of select="$rule/@context"/>
-      </attribute>
+      </runtime:attribute>
     </svrl:suppressed-rule>
   </xsl:template>
 
@@ -79,9 +82,9 @@
     <xsl:param name="assert" as="element(sch:assert)" required="yes"/>
     <svrl:failed-assert location="{{schxslt:location({($assert/@subject, $assert/../@subject, '.')[1]})}}">
       <xsl:sequence select="($assert/@role, $assert/@flag, $assert/@id)"/>
-      <attribute name="test">
+      <runtime:attribute name="test">
         <xsl:value-of select="$assert/@test"/>
-      </attribute>
+      </runtime:attribute>
       <xsl:call-template name="schxslt:handle-detailed-report">
         <xsl:with-param name="schema" as="element(sch:schema)" tunnel="yes" select="$assert/../../.."/>
       </xsl:call-template>
@@ -92,9 +95,9 @@
     <xsl:param name="report" as="element(sch:report)" required="yes"/>
     <svrl:successful-report location="{{schxslt:location({($report/@subject, $report/../@subject, '.')[1]})}}">
       <xsl:sequence select="($report/@role, $report/@flag, $report/@id)"/>
-      <attribute name="test">
+      <runtime:attribute name="test">
         <xsl:value-of select="$report/@test"/>
-      </attribute>
+      </runtime:attribute>
       <xsl:call-template name="schxslt:handle-detailed-report">
         <xsl:with-param name="schema" as="element(sch:schema)" tunnel="yes" select="$report/../../.."/>
       </xsl:call-template>
