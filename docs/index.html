@@ -39,7 +39,7 @@
                     <h1>Who am I?</h1>
                     <ul>
                         <li>David Maus</li>
-                        <li>head of Development @ State- and University Library Hamburg</li>
+                        <li>head of development @ State- and University Library Hamburg</li>
                         <li>author of SchXslt, a modern XSLT-based Schematron implementation</li>
                         <li>
                             <img src="assets/dmaus.png" class="dmaus-picture">
@@ -52,78 +52,80 @@
                     </ul>
                 </section>
                 <section>
-                    <h1>This webinar's repository</h1>
-                    <ul>
-                        <li>
-                            slides and examples are published at Github
-                            <small>
-                                <a href="https://github.com/schxslt/schxslt-markupuk2020-webinar">github.com/schxslt/schxslt-markupuk2020-webinar</a>
-                            </small>
-                        </li>
-                        <li>
-                            download &amp; extract latest version from the releases page
-                        </li>
-                    </ul>
+                    <section>
+                        <h1>This webinar's repository</h1>
+                        <ul>
+                            <li>
+                                slides and examples are published at Github
+                                <small>
+                                    <a href="https://github.com/schxslt/schxslt-markupuk2020-webinar">github.com/schxslt/schxslt-markupuk2020-webinar</a>
+                                </small>
+                            </li>
+                            <li>
+                                download &amp; extract latest version from the releases page
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h1>Repository content</h1>
+                        <dl>
+                            <dt><code>docs/</code></dt>
+                            <dd>presentation slides</dd>
+                            <dt><code>examples/</code></dt>
+                            <dd>examples</dd>
+                            <dt><code>schxslt/</code></dt>
+                            <dd>schematron implementation (SchXslt 1.4.5)</dd>
+                            <dt><code>webinar.xpr</code></dt>
+                            <dd>oXygen project file with transformation scenarios for the examples</dd>
+                        </dl>
+                    </section>
                 </section>
                 <section>
-                    <h1>Repository content</h1>
-                    <dl>
-                        <dt><code>docs/</code></dt>
-                        <dd>presentation slides</dd>
-                        <dt><code>examples/</code></dt>
-                        <dd>examples</dd>
-                        <dt><code>schxslt/</code></dt>
-                        <dd>schematron implementation (SchXslt 1.4.5)</dd>
-                        <dt><code>webinar.xpr</code></dt>
-                        <dd>oXygen project file with transformation scenarios for the examples</dd>
-                    </dl>
-                </section>
-                <section>
-                    <h1>Schematron</h1>
-                    <ul>
-                        <li>rule-based validation language for making assertions about the presence or absence of patterns in XML trees</li>
-                        <li>an XSLT-based implementation reads a schema and creates an XSLT stylesheet that in turn
-                        generates a report when applied to a document</li>
-                        <li>in other words: its a XSLT stylesheet that creates an XSLT stylesheet</li>
-                    </ul>
-                </section>
-                <section>
-                    <h1>XSLT-based implementations</h1>
-                    <dl>
-                        <dt>SchXslt</dt>
-                        <dd><a href="https://github.com/schxslt/schxslt">github.com/schxslt/schxslt</a></dd>
-                        <dt class="dim">Skeleton</dt>
-                        <dd class="dim"><a href="https://github.com/schematron/schematron">github.com/schematron/schematron</a></dd>
-                        <dt class="dim">Skeleton variants</dt>
-                        <dd class="dim">modified versions of the Skeleton</dd>
-                    </dl>
-                </section>
-                <section>
-                    <figure>
-                        <img src="assets/xsltbased.svg">
-                        <figcaption>Two stages of an XSLT-based implementation</figcaption>
-                    </figure>
-                </section>
-                <section>
-                    <h1>Report customization</h1>
-                    <ul>
-                        <li>the report ist generated by the validation stylesheet in the validation stage</li>
-                        <li>the validation stylesheet is generated by the compiler in the compilation phase</li>
-                        <li>you customize the report by customizing the compiler</li>
-                    </ul>
+                    <section>
+                        <h1>Report customization use cases </h1>
+                        <ul>
+                            <li>use a less verbose variant of a SVRL report</li>
+                            <li>use a more verbose variant of a SVRL report</li>
+                            <li>use a custom report format</li>
+                            <li>create an annotated document instance</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h1>XSLT-based implementations</h1>
+                        <dl>
+                            <dt>SchXslt</dt>
+                            <dd><a href="https://github.com/schxslt/schxslt">github.com/schxslt/schxslt</a></dd>
+                            <dt class="dim">Skeleton</dt>
+                            <dd class="dim"><a href="https://github.com/schematron/schematron">github.com/schematron/schematron</a></dd>
+                            <dt class="dim">Skeleton variants</dt>
+                            <dd class="dim">modified versions of the Skeleton</dd>
+                        </dl>
+                    </section>
+                    <section>
+                        <figure>
+                            <img src="assets/xsltbased.svg">
+                            <figcaption>Two stages of an XSLT-based implementation</figcaption>
+                        </figure>
+                    </section>
+                    <section>
+                        <figure>
+                            <img src="assets/xsltbased-2.svg">
+                            <figcaption>Customize the report by customizing the compiler</figcaption>
+                        </figure>
+                    </section>
                 </section>
                 <section>
                     <section>
                         <h1>Compiler customization</h1>
                     </section>
-                    <section>
-                        <h1>Callback API</h1>
-                        <ul>
-                            <li>compiler creates parts of the validation stylesheet by calls to named templates</li>
-                            <li>compiler passes the schema or elements of the schema as arguments</li>
-                            <li>named templates write instructions to be executed at runtime</li>
-                        </ul>
-                    </section>
+                    <!-- <section>
+                         <h1>Callback API</h1>
+                         <ul>
+                         <li>compiler creates parts of the validation stylesheet by calls to named templates</li>
+                         <li>compiler passes the schema or elements of the schema as arguments</li>
+                         <li>named templates write instructions to be executed at runtime</li>
+                         </ul>
+                         </section> -->
                     <section>
                         <figure>
                             <img src="assets/compiler.svg">
@@ -131,40 +133,9 @@
                         </figure>
                     </section>
                     <section>
-                        <h1>Using the callback API</h1>
-                        <ul>
-                            <li>customization via the callback API utilizes the import mechanism of XSLT</li>
-                            <li>if the compiler calls a template, the XSLT processor selects the one with the highest import precedence</li>
-                            <li>
-                                to customize the report
-                                <ol>
-                                    <li>import the compiler stylesheet</li>
-                                    <li>override the API templates</li>
-                                    <li>use your stylesheet to compile the validation stylesheet</li>
-                                </ol>
-                            </li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h1>Example 1: Built-in compiler for SVRL report</h1>
-                        <p>
-                            <code>schxslt/2.0/compile-for-svrl.xsl</code>
-                        </p>
-                    </section>
-                    <section>
-                        <figure>
-                            <img src="assets/import-example-1.svg">
-                            <figcaption>Import precedence in example 1</figcaption>
-                        </figure>
-                    </section>
-                    <section>
                         <h1>SchXslt Callback API</h1>
                         <table>
                             <tbody>
-                                <tr>
-                                    <td>schxslt-api:report</td>
-                                    <td>create the final report</td>
-                                </tr>
                                 <tr>
                                     <td>schxslt-api:active-pattern</td>
                                     <td>instructions for when a pattern is activated</td>
@@ -193,8 +164,39 @@
                                     <td>schxslt-api:validation-stylesheet-body-bottom-hook</td>
                                     <td>instructions that go to the bottom of the validation stylesheet</td>
                                 </tr>
+                                <tr>
+                                    <td>schxslt-api:report</td>
+                                    <td>create the final report</td>
+                                </tr>
                             </tbody>
                         </table>
+                    </section>
+                    <section>
+                        <h1>Using the callback API</h1>
+                        <ul>
+                            <li>customization via the callback API utilizes the import mechanism of XSLT</li>
+                            <li>if the compiler calls a template, the XSLT processor selects the one with the highest import precedence</li>
+                            <li>
+                                to customize the report
+                                <ol>
+                                    <li>import the compiler stylesheet</li>
+                                    <li>override the API templates</li>
+                                    <li>use your stylesheet to compile the validation stylesheet</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h1>Example 1: Built-in compiler for SVRL report</h1>
+                        <p>
+                            <code>schxslt/2.0/compile-for-svrl.xsl</code>
+                        </p>
+                    </section>
+                    <section>
+                        <figure>
+                            <img src="assets/import-example-1.svg">
+                            <figcaption>Import precedence in example 1</figcaption>
+                        </figure>
                     </section>
                     <section>
                         <h1>Example 2: Custom SVRL</h1>
@@ -226,6 +228,22 @@
     }*
 }</code>
                         </pre>
+                    </section>
+                    <section>
+                        <h1>Example 4: Annotated document</h1>
+                        <p>
+                            <code>examples/example-4</code>
+                        </p>
+                        <p>Annotate elements of the document instance.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Summary</h1>
+                        <ul>
+                            <li>customize report by overriding named templates used by the compiler stylesheet</li>
+                            <li><em>caveat:</em> mechanism relies on access to the stylesheets using in the compilation phase</li>
+                        </ul>
                     </section>
                 </section>
             </div>
